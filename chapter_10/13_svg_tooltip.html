@@ -54,11 +54,11 @@
 			   .attr("fill", function(d) {
 					return "rgb(0, 0, " + (d * 10) + ")";
 			   })
-			   .on("mouseover", function(d) {
+			   .on("mouseover", function(d, i) {
 
 					//Get this bar's x/y values, then augment for the tooltip
-					var xPosition = parseFloat(d3.select(this).attr("x")) + xScale.rangeBand() / 2;
-					var yPosition = parseFloat(d3.select(this).attr("y")) + 14;
+					var xPosition = xScale(i) + xScale.rangeBand() / 2;
+					var yPosition = h - yScale(d) + 14;
 
 					//Create the tooltip label
 					svg.append("text")
