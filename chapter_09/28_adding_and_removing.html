@@ -99,7 +99,8 @@
 
 
 
-
+			// Remember the last key value, which is 19 in the dataset
+			var lastKey = 19;
 			//On click, update with new data			
 			d3.selectAll("p")
 				.on("click", function() {
@@ -110,12 +111,13 @@
 					//Decide what to do next
 					if (paragraphID == "add") {
 						//Add a data value
-						var maxValue = 25;
-						var newNumber = Math.floor(Math.random() * maxValue);
-						var lastKeyValue = dataset[dataset.length - 1].key;
-						console.log(lastKeyValue);
+						var maxValue = 24;
+						var minValue = 1;
+						var newNumber = Math.floor(Math.random() * maxValue) + minValue;
+
+						lastKey += 1;
 						dataset.push({
-							key: lastKeyValue + 1,
+							key: lastKey,
 							value: newNumber
 						});
 					} else {
